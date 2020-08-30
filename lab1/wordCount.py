@@ -9,7 +9,8 @@ import sys
 # now we want to take the file as a parameter from the command line
 # instead of being hard coded so
 # we import sys and use
-file1 = open(sys.argv[1], "r")
+inputArguments = sys.argv[1:]
+file1 = open(inputArguments[0], "r")
 
 #test to see if the file opens with read()
 #the "name" attribute of the the file object gives us the path of the fileobject
@@ -126,5 +127,5 @@ print(file2.read())
 
 #close() funciton closes file and frees memory
 #close file when down with them
-
+file1.close()
 file2.close()
