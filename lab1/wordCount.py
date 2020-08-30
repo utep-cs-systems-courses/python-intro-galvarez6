@@ -1,10 +1,15 @@
 import os
-import os.path
 import re
+import sys
 
 #open the file using the open() to return a file object
 #file is in the same directory as the py file
-file1 = open("file1.txt", "r")
+#file1 = open("file1", "r")
+
+# now we want to take the file as a parameter from the command line
+# instead of being hard coded so
+# we import sys and use
+file1 = open(sys.argv[1], "r")
 
 #test to see if the file opens with read()
 #the "name" attribute of the the file object gives us the path of the fileobject
@@ -26,6 +31,11 @@ for text in file1:
     #leading un-wanted characters like if we wanted to remove
     # leading and ending ,, or letteres it would be text.strip(",abc"))
     text = text.strip()
+
+    #we also want all capital letter to be replaced with
+    # lower case so instances like A and a dont count twice
+    #lower returns the lowercases string from the uppercase
+    text = text.lower()
 
     #then we can strip the text of any puncuation marks
     #this is using regular expressions
@@ -72,7 +82,7 @@ for text in file1:
 ## we can use sorted to sort the keys
 # but we also have to typecast it to dictionary
 # because sorted returns a list of items
-#key is used to transform items before they are compared 
+#key is used to transform items before they are compared
 # lambda is an anonymous function used with sorted
 sortedWordCoutner = dict( sorted(wordCounter.items(), key=lambda x: x[0].lower()) )
 
@@ -116,5 +126,5 @@ print(file2.read())
 
 #close() funciton closes file and frees memory
 #close file when down with them
-file1.close()
+
 file2.close()
