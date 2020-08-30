@@ -1,0 +1,9 @@
+are : 1
+doing : 1
+hel : 1
+hell : 1
+Hello : 5
+hello : 1
+How : 1
+there : 1
+you : 1
